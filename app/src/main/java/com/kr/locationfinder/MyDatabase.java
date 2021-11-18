@@ -423,4 +423,14 @@ public class MyDatabase extends SQLiteOpenHelper {
             Toast.makeText(context, "Update Successful!", Toast.LENGTH_SHORT).show();
         }
     }
+
+    void deleteRow(String row_id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(TABLE_NAME, "_id=?", new String[]{row_id});
+        if(result == -1){
+            Toast.makeText(context, "Delete Failed!", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "Delete Successful!", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
